@@ -1,8 +1,6 @@
 import './Navbar.css'
 import Button from '../Button/Button'
-
-
-/* import CartWidget from '../CartWidget/CartWidget' */
+import CartWidget from '../CartWidget/CartWidget' 
 
 const Navbar = () => {
 
@@ -18,8 +16,9 @@ const Navbar = () => {
                 <Button>BEBIDAS BLANCAS</Button>
                 <Button>COMESTIBLES</Button>
                 <Button>LOGIN</Button>
+                <CartWidget />
             </div>
-            {/* <CartWidget /> */}
+            
         </nav>
     )
 }
