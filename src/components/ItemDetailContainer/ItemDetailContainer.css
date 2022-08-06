@@ -1,0 +1,12 @@
+.ItemDetailContainer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+
+.h1class{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

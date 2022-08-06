@@ -1,31 +1,33 @@
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-import { getProductos } from '../../asyncMock'
+import { getProductos,getProductosByCategory  } from '../../asyncMock'
 import ItemList from '../ItemList/ItemList'
-import ItemCounter from '../Counter/ItemCounter';
+import { useParams } from "react-router-dom";
 
-
- const handleOnAdd = (quantity) => {
-    //console.log(`la cantidad agregada es: ${quantity}`)
-  } 
 
 const ItemListContainer = ({ greeting }) => {
     const [productos, setProducts] = useState([])
+    
+    const {categoryId} = useParams()
 
     useEffect(() => {
-        getProductos().then(productos => {
+        const asynFunction = categoryId ? getProductosByCategory : getProductos
+        
+        asynFunction(categoryId).then(productos => {
             setProducts(productos)
+
+        }).catch(error =>{
+            console.log(error)
         })
-    }, [])
+        
+    }, [categoryId])
 
     
     return (
         
         <>
-            <h1>{greeting}</h1>
+            <h1 className='h1class'>{greeting==='Todos nuestros Productos' ? greeting : greeting += categoryId }</h1>
             <ItemList productos={productos}/>
-            <ItemCounter stock={10} onAdd={handleOnAdd}/>
-           {/*  <ItemCounter onAdd={handleOnAdd}/> */}
         </>
      
     )

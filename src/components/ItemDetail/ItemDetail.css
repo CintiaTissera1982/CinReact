@@ -1,25 +1,14 @@
-/* .sizeimage{
-
-    width: 300px;
-    height: 300px;
-    object-fit:contain;
-}
-
-.liclass{
-    list-style: none;
-} */
-
 .CardItem {
-    width: 150px;
+    width: 500px;
     padding: 30px;
     margin: 30px;
     font-size: 10px;
     background-color: papayawhip;
     border: 1px solid #e1e1e1;
-    border-radius: 10px;
+    border-radius: 10px;    
 }
 
-.Header {
+.ContainerItem {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -37,12 +26,11 @@
     justify-content: space-around;
 }
 
-.ButtonDetail {
+.Button {
     width: auto;
     padding: 12px;
     font-size: 8px;
-    /* background: #8C30F5; */
-    background: red;
+    background: #8C30F5;
     border-radius: 8px;
     flex: none;
     display: flex;
@@ -65,32 +53,3 @@
     object-fit: cover;
     object-position: center;
 }
-
-.ItemFooter {
-    display: flex;
-    justify-content: center;
-}
-
-.Option {
-    text-decoration: none;
-    margin: 0 50px;
-    width: auto;
-    padding: 12px;
-    font-size: 20px;
-    background: white;
-    border-color: black;
-    color: black;
-    border-radius: 40%;
-    flex: none;
-    display: flex;
-    order: 1;
-    align-self: center;
-    flex-grow: 0;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    outline: inherit;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  }
-
