@@ -1,21 +1,15 @@
 import './Item.css'
 import { Link } from 'react-router-dom'
 
-/* const Item = ({product}) => {
-    return (
-        <li className='liclass'>
-            <h2>{product.name}</h2>
-            <img className="sizeimage" src={product.img} alt={product.name}/>
-            <h3>PRECIO: $ {product.price}</h3>
-            <h4>{product.description}</h4>
-        </li>
-    )
-}
- */
 const Item = ({id, name, img, price }) => {
-   
+    
+    const handleClick = (e) => {
+        e.stopPropagation()
+        console.log('hice click en item')
+    }
+
     return (
-        <article className="CardItem">
+        <article className="CardItem" onClick={handleClick}>
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}
