@@ -30,7 +30,8 @@
     width: auto;
     padding: 12px;
     font-size: 8px;
-    background: #8C30F5;
+    /* background: #8C30F5; */
+    background: red;
     border-radius: 8px;
     flex: none;
     display: flex;
