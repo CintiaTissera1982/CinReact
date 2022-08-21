@@ -1,38 +1,34 @@
 import './ItemListContainer.css'
-import { useState, useEffect } from 'react'
-import { getProductos,getProductosByCategory  } from '../../asyncMock'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from "react-router-dom";
+import { getProducts } from '../../services/firebase/firestore'
+import { useAsync } from '../../hooks/useAsync'
 
 
 const ItemListContainer = ({ greeting }) => {
-    const [productos, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const {categoryId} = useParams()
+    const { categoryId } = useParams()
 
-    useEffect(() => {
-        setLoading(true)
-        const asynFunction = categoryId ? getProductosByCategory : getProductos
-        
-        asynFunction(categoryId).then(productos => {
-            setProducts(productos)
+    const getProductsFromFirestore = () => getProducts(categoryId)
 
-        }).catch(error =>{
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })  
-        
-    }, [categoryId])
+    const { data, error, isLoading } = useAsync(getProductsFromFirestore, [categoryId])
 
-    
+    if(isLoading) {
+        return <h1>Cargando productos...</h1>
+    }
+
+    if(error) {
+        return <h1>Hubo un error</h1>
+    }
+
+    if(data.length === 0) {
+        return categoryId ? <h1>No hay productos en nuestra categoria {categoryId}</h1> : <h1>No hay productos disponibles</h1>
+    }
+
     return (
-        
-        <>
-            <h1 className='h1class'>{greeting==='Todos nuestros Productos' ? greeting : greeting += categoryId }</h1>
-            <ItemList productos={productos}/>
-        </>
-     
+        <div onClick={() => console.log('click en itemlistcontainer')}>
+            <h1>{`${greeting} ${categoryId || ''}`}</h1>
+            <ItemList productos={data} />
+        </div>
     )
 }
 

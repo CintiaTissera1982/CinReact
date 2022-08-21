@@ -1,4 +1,4 @@
-const productos = [
+/* const productos = [
     { 
         id: '1', 
         name: 'VINO TORO BLANCO 12 X 1000 CC', 
@@ -78,4 +78,4 @@ export const getProductosById = (id) => {
             resolve(productos.find(prod => prod.id === id))
         }, 500)
     })
-}
+} */
