@@ -4,26 +4,43 @@ import CartContext from "../../context/CartContext"
 import { db } from "../../services/firebase"
 import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
 import { useNavigate } from 'react-router-dom'
+import NotificationContext from '../../notification/Notification'
+
 
 const Checkout = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [orderCreated, setOrderCreated] = useState(false)
     const { cart, getQuantity, getTotal, clearCart } = useContext(CartContext) 
-
+    const { setNotification } = useContext(NotificationContext)
     const navigate = useNavigate()
 
     const totalQuantity = getQuantity()
     const total = getTotal()
+
+    const [orderDetail,setorderDetail]=useState({
+        nombre:'',
+        apellido:'',
+        telefono:'',
+        direccion:''
+       })
+    const handleChange=e=>{
+        const {name, value}=e.target; 
+        setorderDetail({
+          ...orderDetail,
+          [name]: value
+        });
+      //  console.log(gestorSeleccionado);
+       }
 
     const createOrder = async () => {
         setIsLoading(true)
         try {
             const objOrder = {
                 buyer: {
-                    firstName: 'Cintia Marina',
-                    lastName: 'Tissera',
-                    phone: '156155651',
-                    address: 'direccion 123'
+                    firstName: orderDetail.nombre,
+                    lastName: orderDetail.apellido,
+                    phone: orderDetail.telefono,
+                    address: orderDetail.direccion
                 },
                 items: cart,
                 totalQuantity,
@@ -63,14 +80,16 @@ const Checkout = () => {
                 const orderRef = collection(db, 'orders')
                 const orderAdded = await addDoc(orderRef, objOrder)
     
-                console.log(`El id de su orden es: ${orderAdded.id}`)
+                /* console.log(`El id de su orden es: ${orderAdded.id}`) */
+                setNotification('success', `El id de su orden es: ${orderAdded.id}`)
                 clearCart()
                 setOrderCreated(true)
                 setTimeout(() => {
                     navigate('/')
                 }, 3000)
             } else {
-                console.log('Hay productos que estan fuera de stock')
+                /* console.log('Hay productos que estan fuera de stock') */
+                setNotification('error', `Hay productos que estan fuera de stock`)
             }
         } catch (error) {
             console.log(error)
@@ -89,9 +108,30 @@ const Checkout = () => {
 
     return (
         <>
-            <h1>Checkout</h1>
-            <h2>Formulario</h2>
-            <button className="Option" onClick={createOrder}>Generar Orden</button>
+            <h1>Último Paso!</h1>
+            <h2>Finalizá tu compra</h2>
+
+            <div className="form-group">
+                <label>Nombre:</label>
+                <br />
+                <input type="text" name="nombre" onChange={handleChange}/>
+                <br />
+                <label>Apellido:</label>
+                <br />
+                <input type="text" name="apellido" onChange={handleChange}/>
+                <br />
+                <label>Telefono:</label>
+                <br />
+                <input type="text" name="telefono" onChange={handleChange}/>
+                <br />
+                <label>Dirección:</label>
+                <br />
+                <input type="text" name="direccion" onChange={handleChange}/>
+                <br />
+
+            </div>  
+            
+            <button className="waves-effect waves-dark btn" onClick={createOrder}>Finalizar Pedido</button>
         </>
     )
 }

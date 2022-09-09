@@ -26,7 +26,8 @@ const Item = ({id, name, img, price }) => {
             <footer className='ItemFooter'>
                 <Link  to={`/detail/${id}`} className='Button'>Ver detalle</Link>
             </footer>
-        </article>
+        </article> 
+
     )
 }
 export default Item
