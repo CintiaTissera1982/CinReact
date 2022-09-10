@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
 .CardCartItem {
     display: flex;
     justify-content: space-between;
     width: auto;
     padding: 20px;
     margin: 30px;
-    font-size: 10px;
-    background-color: papayawhip;
+    font-size: 20px;
+    background-color: rgb(221, 216, 216);
     border: 1px solid #e1e1e1;
     border-radius: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .InfoCartItem {
@@ -25,7 +30,7 @@
 }
 
 .InfoCartItem {
-    font-size: 12px;
+    font-size: 25px;
     display: flex;
     justify-content: space-between;
 }
@@ -34,7 +39,7 @@
     width: auto;
     padding: 12px;
     font-size: 8px;
-    background: #8C30F5;
+    background: red;
     border-radius: 8px;
     flex: none;
     display: flex;

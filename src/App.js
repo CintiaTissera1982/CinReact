@@ -7,7 +7,7 @@ import { CartContextProvider } from './context/CartContext'
 import Cart from './components/Cart/Cart'
 import { NotificationProvider } from './notification/Notification'
 import Checkout from './components/Checkout/Checkout';
-            
+
 
 function App() {
 
@@ -18,8 +18,8 @@ function App() {
           <BrowserRouter>
             <Navbar />
             <Routes>
-              <Route path='/' element={<ItemListContainer greeting='Todos nuestros Productos'/>}/>
-              <Route path='/category/:categoryId' element={<ItemListContainer greeting='Listado filtrado : '/>} />
+              <Route path='/' element={<ItemListContainer greeting='Nuestros Productos'/>}/>
+              <Route path='/category/:categoryId' element={<ItemListContainer greeting=''/>} />
               <Route path='/detail/:productId' element={<ItemDetailContainer />} />  
               <Route path='/cart' element={<Cart />}/>  
               <Route path='/checkout' element={<Checkout />} />

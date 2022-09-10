@@ -7,8 +7,9 @@ const Navbar = () => {
     return (
         <nav className="Navbar">
 
-            <h1 className='h1class'>DISTRIBUIDORA OMMI</h1>
-            <p className='pclass'>Tu Distribuidora amiga</p>
+             <h1 class="dark-text"><strong>DISTRIBUIDORA OMMI</strong></h1>
+             <h3 class="dark-text"><strong>Distribuidora de Bebidas</strong></h3>
+
 
             <div className="divclass">
                 <NavLink to='/category/VINOS' className="Option">VINOS</NavLink>

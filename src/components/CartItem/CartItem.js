@@ -1,13 +1,15 @@
 import './CartItem.css'
 import { useContext } from 'react'
 import CartContext from '../../context/CartContext'
-
+import NotificationContext from '../../notification/Notification'
 
 const CartItem = ({ id, name, quantity, price }) => {
     const { removeItem } = useContext(CartContext)
+    const { setNotification } = useContext(NotificationContext)
 
     const handleRemove = (id) => {
         removeItem(id)
+        setNotification('warning', `Se quitó el producto:  ${name}`)
     }
 
     return (

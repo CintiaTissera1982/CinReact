@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+
 .CardItem {
     width: 500px;
     padding: 30px;
     margin: 30px;
     font-size: 10px;
-    background-color: papayawhip;
+    background-color: rgb(221, 216, 216);
     border: 1px solid #e1e1e1;
     border-radius: 10px;    
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .ContainerItem {
@@ -13,6 +19,7 @@
     flex-direction: column;
     margin-bottom: 10px;
     border-radius: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .ItemHeader {
@@ -21,16 +28,16 @@
 }
 
 .Info {
-    font-size: 12px;
+    font-size: 20px;
     display: flex;
     justify-content: space-around;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .Button {
     width: auto;
     padding: 12px;
     font-size: 8px;
-    /* background: #8C30F5; */
     background: red;
     border-radius: 8px;
     flex: none;
@@ -46,6 +53,7 @@
     border-style: none;
     cursor: pointer;
     outline: inherit;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .ItemImg {

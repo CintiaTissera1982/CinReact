@@ -1,20 +1,13 @@
-/* .sizeimage{
-
-    width: 300px;
-    height: 300px;
-    object-fit:contain;
-}
-
-.liclass{
-    list-style: none;
-} */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
 
 .CardItem {
     width: 150px;
     padding: 30px;
     margin: 30px;
     font-size: 10px;
-    background-color: papayawhip;
+    background-color: rgb(221, 216, 216);
     border: 1px solid #e1e1e1;
     border-radius: 10px;
 }
@@ -32,7 +25,7 @@
 }
 
 .Info {
-    font-size: 12px;
+    font-size: 20px;
     display: flex;
     justify-content: space-around;
 }
@@ -41,7 +34,6 @@
     width: auto;
     padding: 12px;
     font-size: 8px;
-    /* background: #8C30F5; */
     background: red;
     border-radius: 8px;
     flex: none;
@@ -91,6 +83,5 @@
     text-decoration: none;
     cursor: pointer;
     outline: inherit;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Open Sans Condensed', sans-serif;
   }
-

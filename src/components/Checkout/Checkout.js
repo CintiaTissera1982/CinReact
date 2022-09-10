@@ -1,3 +1,4 @@
+import './Checkout.css'
 import { useState, useContext } from "react"
 import CartContext from "../../context/CartContext"
 
@@ -29,7 +30,6 @@ const Checkout = () => {
           ...orderDetail,
           [name]: value
         });
-      //  console.log(gestorSeleccionado);
        }
 
     const createOrder = async () => {
@@ -80,7 +80,6 @@ const Checkout = () => {
                 const orderRef = collection(db, 'orders')
                 const orderAdded = await addDoc(orderRef, objOrder)
     
-                /* console.log(`El id de su orden es: ${orderAdded.id}`) */
                 setNotification('success', `El id de su orden es: ${orderAdded.id}`)
                 clearCart()
                 setOrderCreated(true)
@@ -88,7 +87,6 @@ const Checkout = () => {
                     navigate('/')
                 }, 3000)
             } else {
-                /* console.log('Hay productos que estan fuera de stock') */
                 setNotification('error', `Hay productos que estan fuera de stock`)
             }
         } catch (error) {
@@ -109,29 +107,34 @@ const Checkout = () => {
     return (
         <>
             <h1>Último Paso!</h1>
-            <h2>Finalizá tu compra</h2>
+            <h2>Finalizá tu Pedido</h2>
 
-            <div className="form-group">
-                <label>Nombre:</label>
-                <br />
-                <input type="text" name="nombre" onChange={handleChange}/>
-                <br />
-                <label>Apellido:</label>
-                <br />
-                <input type="text" name="apellido" onChange={handleChange}/>
-                <br />
-                <label>Telefono:</label>
-                <br />
-                <input type="text" name="telefono" onChange={handleChange}/>
-                <br />
-                <label>Dirección:</label>
-                <br />
-                <input type="text" name="direccion" onChange={handleChange}/>
-                <br />
 
-            </div>  
+            <div className="formContent">
+                
+                <div className="inputDiv">
+                    <label className="labelsForm">Nombre</label>
+                    <input className="inputsForm" type="text" name="nombre" onChange={handleChange}/>
+
+                </div>
+                <div className="inputDiv">
+                    <label className="labelsForm">Apellido</label>
+                    <input className="inputsForm"  type="text" name="apellido" onChange={handleChange}/>
+
+                </div>
+                <div className="inputDiv">
+                    <label className="labelsForm">Telefono</label>
+                    <input className="inputsForm"  type="text" name="telefono" onChange={handleChange}/>
+                </div>
+                <div className="inputDiv">
+                    <label className="labelsForm">Dirección</label>
+                    <input className="inputsForm"  type="text" name="direccion" onChange={handleChange}/>
+                </div>
+                <button className="Button" onClick={createOrder}>Finalizar Pedido</button>
+
+            </div>            
             
-            <button className="waves-effect waves-dark btn" onClick={createOrder}>Finalizar Pedido</button>
+            
         </>
     )
 }
